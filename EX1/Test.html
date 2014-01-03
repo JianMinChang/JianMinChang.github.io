@@ -6,5 +6,16 @@
 </head>
 <body>
     Test
+    <br />
+    <input id="Button1" type="button" value="button" />
 </body>
 </html>
+<script>
+    var b = document.getElementById("Button1");
+    if (!!b) {
+        b.onclick = function () {
+
+            location.href = "Test2.html";
+        }
+    }
+</script>
