@@ -1,0 +1,73 @@
+﻿body {
+    margin:0px;
+    /*font-family:'Lao UI';*/
+    font-family:'Buxton Sketch';
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+}
+h1{
+    font-size:54px;
+}
+header#header{
+    width:100%;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    background-color:#778899;
+    padding:10px;
+    
+}
+#header div{
+    width:100%;
+    display:table;
+}
+#header div#logo{
+    width:50%;
+    font-size:72px;
+    display:table-cell;
+    padding-left:3em;
+    color:#000;
+}
+nav#menu{
+    width:50%;
+    display:table-cell;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    padding-left: 10em;
+}
+#menu ul{
+    width:100%;
+    
+}
+    #menu ul li
+    {
+        float: left;
+        width:auto;
+        padding-left: 30px;
+        font-size:24px;
+    }
+        #menu ul li a
+        {
+            text-decoration:none;
+            display:block;
+            /*background-color:#B0E0E6;*/
+        }
+
+article#content{
+    padding:1em;
+}
+
+
+
+
+footer#footer{
+    width:100%;
+    font-size:24px;
+    background-color:#000;
+    color:#fff;
+    text-align:center;
+    margin-bottom:0px;
+    height:2em;
+}
