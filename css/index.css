@@ -204,3 +204,6 @@ footer#footer
 a{
     text-decoration:none;
 }
+.black-center{
+    margin:0 auto;
+}
