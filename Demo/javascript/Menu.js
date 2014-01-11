@@ -91,7 +91,7 @@ var CheateMenu = function () {
         for (var j = 0; j < menuulli[i].children.length; j++) {
             if (menuulli[i].children[j].tagName == "DIV") {
                 menuulli[i].children[j].style.width = header + "px";
-                console.log(menuulli[i].children[j].style.width = header + "px");
+                //console.log(menuulli[i].children[j].style.width = header + "px");
                 menuulli[i].children[j].style.left = -(moveX + (movelist * i)) + "px";
                 menuulli[i].children[j].children[0].style.paddingLeft = moveX + (movelist) + "px";
             }

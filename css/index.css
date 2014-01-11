@@ -24,17 +24,39 @@ h5{
     text-align:center;
 }
 
+.fint-size-1em{
+    font-size:1em;
+}
+
+.fint-size-2em{
+    font-size:2em;
+}
+
+.fint-size-3em{
+    font-size:3em;
+}
+
+.fint-size-4em{
+    font-size:4em;
+}
+
+.fint-size-5em{
+    font-size:5em;
+}
+
 header#header{
     width:100%;
     -moz-box-sizing:border-box;
     -webkit-box-sizing:border-box;
     box-sizing:border-box;
     background-color:#6cbbf3;
+    height:15em;
 }
 
 
 article#content{
-    padding:0px;
+    padding:2em;
+    /*padding-bottom: 100px;*/
 }
 
 
@@ -64,13 +86,29 @@ article#content{
     width:50%;
 }
 
-footer#footer{
-    width:100%;
-    background:rgba(0,0,0,0.8);
-    color:#fff;
-    text-align:center;
-    margin-bottom:0px;
-    height:auto;
+.width80{
+    width:80%;
+}
+
+#Purpose{
+    
+}
+
+.black-teitle-lineheight-2em{
+    line-height:2em;
+}
+
+
+footer#footer
+{
+    width: 100%;
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    text-align: center;
+    /*margin-bottom:0px;*/
+    height: auto;
+    position: relative;
+    margin-top:-2em;
 }
 
 .padding-1em{
@@ -81,10 +119,88 @@ footer#footer{
     padding:2em;
 }
 
+.padding-4em{
+    padding:4em;
+}
+
 .lineheight-2em{
     line-height:2em;
 }
 
 .lineheight-4em{
     line-height:4em;
+}
+
+.margin-top-2em{
+    margin-top:2em;
+}
+
+.margin-top-4em{
+    margin-top:4em;
+    
+}
+
+.border-radius-2em
+{
+    border-top-left-radius: 2em;
+    border-top-right-radius: 2em;
+    border-bottom-right-radius: 2em;
+    border-bottom-left-radius: 2em;
+}
+
+.border-top-radius-2em
+{
+    border-top-left-radius: 2em;
+    border-top-right-radius: 2em;
+}
+
+.border-bottom-radius-2em
+{
+    border-bottom-right-radius: 2em;
+    border-bottom-left-radius: 2em;
+}
+
+.border-solid-2px{
+    border:2px solid #808080;
+    
+}
+
+
+.background-color-green{
+    background-color:#7cd357;
+}
+.background-color-blue{
+    background-color:#86c7f6;
+}
+
+.background-color-purple{
+    background-color:#d880ff;
+}
+
+
+.background-color-yellow{
+    background-color:#f7ea9f;
+}
+
+.color-yellow{
+    color:#f7ea9f;
+}
+
+.color-green{
+    color:#7cd357;
+}
+.color-blue{
+    color:#86c7f6;
+}
+
+.color-purple{
+    color:#d880ff;
+}
+.color-gray{
+    color:#808080;
+    
+}
+
+a{
+    text-decoration:none;
 }
