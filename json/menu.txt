@@ -3,7 +3,7 @@
         "MenuID": 1,
         "Rootmenuid": 0,
         "MenuName": "Home",
-        "PageURL": "Index.html"
+        "PageURL": "http://jianminchang.github.io/"
     },
     {
         "MenuID": 2,
