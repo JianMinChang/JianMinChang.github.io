@@ -1,0 +1,26 @@
+﻿[
+    {
+        "MenuID": 1,
+        "Rootmenuid": 0,
+        "MenuName": "Home",
+        "PageURL": "Index.html"
+    },
+    {
+        "MenuID": 2,
+        "Rootmenuid": 0,
+        "MenuName": "About Me",
+        "PageURL": "javascript:void(0)"
+    },
+    {
+        "MenuID": 3,
+        "Rootmenuid": 0,
+        "MenuName": "Category",
+        "PageURL": "javascript:void(0)"
+    },
+    {
+        "MenuID": 4,
+        "Rootmenuid": 0,
+        "MenuName": "Contact Me",
+        "PageURL": "javascript:void(0)"
+    }
+]
