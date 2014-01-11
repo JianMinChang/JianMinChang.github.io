@@ -3,7 +3,7 @@
         "MenuID": 1,
         "Rootmenuid": 0,
         "MenuName": "Home",
-        "PageURL": "http://jianminchang.github.io/index.html"
+        "PageURL": "index.html"
     },
     {
         "MenuID": 2,
@@ -21,6 +21,19 @@
         "MenuID": 4,
         "Rootmenuid": 0,
         "MenuName": "Contact Me",
+        "PageURL": "javascript:void(0)"
+    },
+    
+    {
+        "MenuID": 5,
+        "Rootmenuid": 3,
+        "MenuName": "C#",
+        "PageURL": "javascript:void(0)"
+    },
+    {
+        "MenuID": 6,
+        "Rootmenuid": 3,
+        "MenuName": "SQL",
         "PageURL": "javascript:void(0)"
     }
 ]
