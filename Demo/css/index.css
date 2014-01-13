@@ -59,12 +59,16 @@ header#header{
 }
 #header div#logo{
     width:50%;
-    font-size:7em;
+    font-size:6.5em;
     display:table-cell;
-    padding-left:2.5em;
+    padding-left:1.5em;
     /*color:#000;*/
     color:#fff;
 }
+
+
+
+
 nav#menu{
     position:absolute;
     width:50%;
@@ -146,6 +150,7 @@ nav#menu{
 
 article#content{
     padding:0px;
+    padding-bottom:20em;
 }
 
 #background-image
@@ -327,4 +332,36 @@ a{
 }
 .height-20em{
     height:20em;
+}
+
+
+
+@media all and (min-width:980px) and (max-width:1440px)
+{
+    #header div#logo
+    {
+        width: 50%;
+        font-size: 6.4em;
+        display: table-cell;
+        padding-left: 1em;
+        /*color:#000;*/
+        color: #fff;
+    }
+
+
+    #menu ul li
+    {
+        float: left;
+        width: 15%;
+        padding-left: 1em;
+        font-size:20px;
+        line-height:2em;
+         position: relative;
+
+    }
+}
+
+::selection{
+    color:#fff;
+    background-color:#000;
 }
