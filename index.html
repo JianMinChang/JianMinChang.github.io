@@ -11,53 +11,151 @@
     
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <script src="jmpress/js/jmpress.min.js"></script>
+    <script src="jmpress/js/jquery.jmslideshow.js"></script>
+    <link href="jmpress/css/style_alt.css" rel="stylesheet" />
+    <script>
+        $(function () {
+            $('#jms-slideshow').jmslideshow({
+                animation: { transitionDuration: '1s' },
+                viewPort: {
+                    height: 400,
+                    width: 960,
+                    maxScale: 1
+                },
+                fullscreen: true,
+                hash: { use: false },
+                mouse: { clickSelects: true },
+                keyboard: { use: false },
+                animation: { transitionDuration: '1s' },
+                autoplay: true,
+                bgColorSpeed: '1s',
+                arrows: true,
+                interval: 8000,
+            });
+
+
+
+        });
+
+    </script>
+
+
 </head>
 <body>
     <header id="header">
-        <h1 class="text-align-center padding-1em color-gray">Jian Min Chang's Demo Space</h1>
+        <div id="headercontent" class="box-size-border">
+            Jian Min Chang's Github
+        </div>
     </header>
+    <article id="Content">
+        <div id="showpic"  class="jms-slideshow" >
+            
+            <section id="jms-slideshow" class="jms-slideshow">
 
 
 
-    <article id="content">
 
-        <div class="width100 margin-top-4em  border-radius-2em color-gray">
-            <div id="Purpose" class=" width50  border-radius-2em  box-size-border text-align-center  black-center" ">
-                <div class=" width100 box-size-border  border-top-radius-2em  background-color-purple padding-1em text-align-center">
-                    <h1>Purpose</h1> 
+
+                <div class="step" data-color="color-1" data-x="1000" data-y="1000" data-scale="0.2" >
+                    <div class="jms-content">
+                        <h3>A good programmer is someone who looks both ways before crossing a one-way street. </h3>
+                        <p>一個好的程式設計師，就是那種就算只是要穿越單行道，也會看看兩邊再走的人。</p>
+                        <p class="text-align-right">–Doug Linder, 系統管理員</p>
+                    </div>
+                    
                 </div>
-                <div class=" padding-4em width100 black-teitle-lineheight-2em box-size-border background-color-green border-bottom-radius-2em">
-                    <h3>Rendering and Demo works.</h3>
+
+                <div class="step" data-color="color-2" data-x="2000" data-y="1000"  data-rotate="-20">
+                    <div class="jms-content" >
+                        <h3>If builders built buildings the way programmers wrote programs, then the first woodpecker that came along would destroy civilization.</h3>
+                        <p>如果建設者以開發員寫程式的方法建造建築物，走過來的第一頭啄木鳥會摧毀整個文明。</p>
+                        <p class="text-align-right">–Gerald Weinberg</p>
+                    </div>
+                    
+                </div>
+                
+
+                <div class="step" data-color="color-3" data-x="3000" data-y="1000" data-scale="0.6">
+					<div class="jms-content">
+						<h3>Measuring programming progress by lines of code is like measuring aircraft building progress by weight.</h3>
+                        <p>用程式的行數來測量編程的進展，相當於用重量來測量飛機建造的進展。</p>
+                        <p class="text-align-right">–Bill Gates (Founder of Microsoft)</p>
+					</div>
+
+				</div>
+
+                <div class="step" data-color="color-4" data-x="2000" data-y="0" data-scale="0.2">
+					<div class="jms-content">
+						<h3>The first 90% of the code accounts for the first 90% of the development time. The remaining 10% of the code accounts for the other 90% of the development time.</h3>
+                        <p>程式開頭的 90％ 程式碼佔開發時間開頭的 90%，其餘 10％ 的程式碼佔其餘 90％的開發時間。</p>
+                        <p class="text-align-right">- Tom Cargill (貝爾實驗室)</p>
+					</div>
+
+				</div>
+
+
+                <div class="step" data-color="color-5" data-x="3500" data-y="2000" data-rotate="-120">
+					<div class="jms-content">
+						<h3>Besides a mathematical inclination, an exceptionally good mastery of one’s native tongue is the most vital asset of a competent programmer.</h3>
+                        <p>除了數學外，精通母語也是一個勝任程式設計師的重要資產。 </p>
+                        <p class="text-align-right">–Edsger Dijkstra</p>
+					</div>
+
+				</div>
+
+                <div class="step" data-color="color-6" data-x="1500" data-y="1000" data-scale="0.6">
+					<div class="jms-content">
+						<h3>There are only two kinds of programming languages: those people always bitch about and those nobody uses.</h3>
+                        <p>世界上只有兩種程式語言：總是被人罵的、根本沒人用的。</p>
+                        <p class="text-align-right">–Bjarne Stroustrup</p>
+					</div>
+
+				</div>
+            </section>
+        </div>
+        
+        <div id="ShowArea">
+            <div class="divtable">
+                <div class="divtable-row">
+                    <div class="divtable-cell width33p">
+                        <div class="divtable" style="margin:0 auto;">
+                            <a class="taghref" href="javascript:void(0)">
+                                <div class="test1 box-size-border">
+                                    About Me
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="divtable-cell width33p">
+                        <div class="divtable" style="margin:0 auto;">
+                            <a class="taghref" href="Demo/index.html">
+                                <div class="test1 box-size-border">
+                                    Specialty skills
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="divtable-cell width33p">
+                        <div class="divtable" style="margin:0 auto;">
+                            <a class="taghref" href="javascript:void(0)">
+                                <div class="test1 box-size-border">
+                                    Content Me
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        
-        <div class="width100 margin-top-4em border-radius-2em color-gray" >
-            <div id="Pagelink" class="width50    border-radius-2em  box-size-border black-center ">
-                <div class="width100 box-size-border  border-top-radius-2em background-color-blue padding-1em  text-align-center">
-                    <h1>Project</h1> 
-                </div>
-                <div class=" padding-4em width100 black-teitle-lineheight-2em box-size-border  background-color-yellow border-bottom-radius-2em text-align-center">
-                      <ol>
-                          <li class="fint-size-3em"><a class=" color-purple" href="Demo/index.html">Works Demo</a></li>
-                      </ol>
-
-
-
-                </div>
-            </div>
-        </div>
-        
-        
-       <br /><br /><br /><br /><br /><br /><br /><br /><br />
-        <br /><br /><br />
         
     </article>
-
-
-
-    <footer id="footer">
-        <h4 class="text-align-center padding-1em">Design By Jian Min Chang</h4>
+    <footer id="footer" class="box-size-border">
+        <div id="footercontent">
+            Design By Jian Min Chang
+        </div>
+        
     </footer>
 </body>
 </html>
