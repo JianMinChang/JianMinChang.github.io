@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>Document</title>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+		<!-- 最新編譯和最佳化的 CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+		<!-- <style type="text/css">
+		html,body{
+			width:100%;
+			margin:0px;
+			padding:0px;
+		}
+		#content{
+			width : 980px;
+			margin:0 auto;
+		}
+		#info{
+			 text-align:left;
+		}
+		#dataTable{
+			text-align:center;
+		}
+		#dataTable>thead>tr{
+			background-color:#888;
+		}
+
+		#dataTable>tbody>tr:nth-child(even){
+			background-color:#B0C4DE;
+		}
+	</style>
+	-->
+	</head>
+	<body ng-app="ngapp1">
+		<div id="content" class="container-fluid">
+			<div ng-controller="TestCtrl" class="col-xs-12 col-md-12">
+				<h3>八仙爆炸事件傷者查詢</h3>
+				<div id="info">
+					<h5>資料來源 : {{source}}</h5>
+					<h5>最後更新時間 :
+						<span class="bg-info">{{ lastmodify }}</span>
+					</h5>
+				</div>
+				<hr />
+				<label>查詢姓名:
+					<input type="text" class="from-control" ng-model="keywords" placeholder="請輸入姓名">
+				</label>
+				<hr />
+				<h5>完整資料筆數 : {{members.length}} 筆</h5>
+				<div class="table-responsive">
+					<table id="dataTable" class="table table-striped table-bordered table-hover text-left col-md-12">
+						<thead>
+							<tr class="bg-primary text-left">
+								<th class="col-xs-1 col-md-1">編號</th>
+								<th class="col-xs-1 col-md-1">姓名</th>
+								<th class="col-xs-1 col-md-1">性別</th>
+								<th class="col-xs-1 col-md-1">國籍</th>
+								<th class="col-xs-1 col-md-1">年齡</th>
+								<th class="col-xs-1 col-md-1">縣市別</th>
+								<th class="col-xs-1 col-md-1">收治單位</th>
+								<th class="col-xs-1 col-md-1">檢傷編號</th>
+								<th class="col-xs-1 col-md-1">醫療檢傷</th>
+								<th class="col-xs-1 col-md-1">救護檢傷</th>
+								<th class="col-xs-1 col-md-1">即時動向</th>
+								<th class="col-xs-1 col-md-1">轉診要求</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="member in members | filter:nameSearch()">
+								<td>{{member['編號']}}</td>
+								<td>{{member['姓名']}}</td>
+								<td>{{member['性別']}}</td>
+								<td>{{member['國籍']}}</td>
+								<td>{{member['年齡']}}</td>
+								<td>{{member['縣市別']}}</td>
+								<td>{{member['收治單位']}}</td>
+								<td>{{member['檢傷編號']}}</td>
+								<td>{{member['醫療檢傷']}}</td>
+								<td>{{member['救護檢傷']}}</td>
+								<td>{{member['即時動向']}}</td>
+								<td>{{member['轉診要求']}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var myMoudle = angular.module('ngapp1', []);
+		
+			myMoudle.controller('TestCtrl', ['$scope','$http', function ($scope,$http) {
+				
+				$scope.keywords = "";
+		      	$scope.members = [];
+		
+				$http.get("http://tonyq.org/kptaipei/api-20150628.php")
+				.success(function(resule, status, headers, config) {
+					$scope.lastmodify  = resule.lastmodify;
+					$scope.source = resule.source;
+					$scope.members = resule.data;
+		
+			    		console.log(resule.data);
+		  		});
+		
+		
+				
+				$scope.nameSearch = function() {
+		        return ($scope.keywords.length > 1) ? $scope.keywords[0] + '○' + $scope.keywords.substr(2, $scope.keywords.length-2) : $scope.keywords;
+				//return  $scope.keywords;
+		      };
+		
+			}]);
+		</script>
+	</body>
+
+</html>
