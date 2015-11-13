@@ -6,6 +6,7 @@
 	<title>Canvas-小畫家</title>
 	<script src="http://m.vpon.com/ad_pro/js/jquery-latest.min.js"></script>
 
+	<link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/JianMinChang/JianMinChang.github.io/master/css/ResetCSS.css">
 	<style type="text/css">
 
 		html,body{
@@ -16,14 +17,17 @@
 			width:8vh;
 			height: 8vh;border: 0.5vh solid #000;
 			float: left;
-			margin-right: 2vh;
-			margin-top: 2vh ;
+			margin-left: 1vh;
+			margin-right: 1vh;
+			margin-top: 2vh;
+			margin-bottom: 2vh;
 		}
 		.box-sizing{
 			box-sizing: border-box;
 		}
-	</style>
 
+	</style>
+	
 </head>
 <body>
 	<script type="text/javascript" src="http://jianminchang.github.io/Canvas/%E9%96%83%E9%81%BF%E5%AD%90%E5%BD%88/js/main.min.js"></script>
@@ -34,24 +38,26 @@
 
 	<canvas id="canvas1" class="box-sizing" style="border: 1px solid #000;"></canvas>
  
-<br /><br />
-<input class="box-sizing" id="btnClearConvas" type="button" value="全部清空" style="width:20vh;height:5vh;background-color: green;color:white;font-size: 3vh;"  /> 
+<div class="box-sizing" style="width:100%;margin-top: 2vh;">
+	<input class="box-sizing" id="btnClearConvas" type="button" value="全部清空" style="width:20vh;height:5vh;background-color: green;color:white;font-size: 3vh;"  /> 
+</div>
 
-<br /><br />
-<label class="box-sizing" style="font-size: 3vh;">線條粗細</label>
+<div class="box-sizing" style="width:100%;margin-top: 2vh;">
+	<label class="box-sizing" style="font-size: 3vh;">線條粗細</label>
+	<select class="box-sizing" id="ddllineWidth" style="width:20vh;height:5vh;background-color: #ddd;font-size: 3vh;" >
+		<option value="1">1</option>
+		<option value="3">3</option>
+		<option value="5">5</option>
+		<option value="7" selected="selected">7</option>
+		<option value="9">9</option>
+		<option value="11">11</option>
+	</select>
+</div>
 
-<select class="box-sizing" id="ddllineWidth" style="width:20vh;height:5vh;background-color: #ddd;font-size: 3vh;" >
-	<option value="1">1</option>
-	<option value="3">3</option>
-	<option value="5">5</option>
-	<option value="7" selected="selected">7</option>
-	<option value="9">9</option>
-	<option value="11">11</option>
-</select>
-<br /><hr />
+<div class="box-sizing" style="width:100%;margin-top: 2vh;">
 <label class="box-sizing" style="font-size: 3vh;">線條顏色</label>
-<br />
-	<div class="box-sizing" style="width:100%;height:20vh;">
+
+	<div class="box-sizing" style="width:100%;height:20vh;margin-top: 2vh;">
 		<div class="divcolor box-sizing" style="background-color:#FF0000;"></div>
 		<div class="divcolor box-sizing" style="background-color:#FF8200;"></div>
 		<div class="divcolor box-sizing" style="background-color:#FFDC3C;"></div>
@@ -62,6 +68,7 @@
 		<div class="divcolor box-sizing" style="background-color:#000;"></div>
 		<div class="divcolor box-sizing" style="background-color:#fff;"></div>
 	</div>
+</div>
 
 <script type="text/javascript">
 	var CanvansObj =function(obj) {
@@ -143,7 +150,6 @@
 
 		var a = new CanvansObj({id:"canvas1" ,width:value-2,height:value-2 });
 		a.init();
-		console.log(a);
 
 		jQuery("#btnClearConvas").click(function(e) {
 			e.preventDefault();
