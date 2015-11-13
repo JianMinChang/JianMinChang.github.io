@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zn-TW">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://m.vpon.com/ad_pro/js/jquery-latest.min.js"></script>
+
+	<style type="text/css">
+
+		html,body{
+			margin: 0;
+			padding: 0;
+		}
+		.divcolor{
+			width:8vh;
+			height: 8vh;border: 0.5vh solid #000;
+			float: left;
+			margin-right: 2vh;
+			margin-top: 2vh ;
+		}
+		.box-sizing{
+			box-sizing: border-box;
+		}
+	</style>
+
+</head>
+<body>
+	<script type="text/javascript" src="http://jianminchang.github.io/Canvas/%E9%96%83%E9%81%BF%E5%AD%90%E5%BD%88/js/main.min.js"></script>
+	<script>
+	var a =jlib.ua.getInfo();
+	a.IsPC ? jlib.qrcode.get(location.href,320,320).render(): "" ;
+</script>
+
+	<canvas id="canvas1" class="box-sizing" style="border: 1px solid #000;"></canvas>
+ 
+<br /><br />
+<input id="btnClearConvas" type="button" value="全部清空" style="width:20vh;height:5vh;background-color: green;color:white;font-size: 3vh;"  /> 
+
+<br /><br />
+<label style="font-size: 3vh;">線條粗細</label>
+
+<select id="ddllineWidth" style="width:20vh;height:5vh;background-color: #ddd;font-size: 3vh;" >
+	<option value="1">1</option>
+	<option value="3">3</option>
+	<option value="5">5</option>
+	<option value="7" selected="selected">7</option>
+	<option value="9">9</option>
+	<option value="11">11</option>
+</select>
+<br /><hr />
+<label style="font-size: 3vh;">線條顏色</label>
+<br />
+	<div>
+		<div class="divcolor" style="background-color:#FF0000;"></div>
+		<div class="divcolor" style="background-color:#FF8200;"></div>
+		<div class="divcolor" style="background-color:#FFDC3C;"></div>
+		<div class="divcolor" style="background-color:#40A940;"></div>
+		<div class="divcolor" style="background-color:#2828FF;"></div>
+		<div class="divcolor" style="background-color:#4169E1;"></div>
+		<div class="divcolor" style="background-color:#9932CC;"></div>
+		<div class="divcolor" style="background-color:#000;"></div>
+		<div class="divcolor" style="background-color:#fff;"></div>
+	</div>
+
+<script type="text/javascript">
+	var CanvansObj =function(obj) {
+		
+		var canvas = document.getElementById(obj.id);
+		
+		canvas.width= obj.width || 640;
+		canvas.height= obj.height || 640;
+		var ctx = canvas.getContext("2d");
+
+
+		var point={ x:0 , y:0};
+
+		var color = "#000";
+		var lineWidth = obj.lineWidth ||8;
+		var lineColor =  obj.lineColor || "#000";
+
+		var self = {};
+		
+		var self ={
+
+			
+			init : function() {
+				canvas.addEventListener("touchstart", self.predraw,false);
+				canvas.addEventListener('touchmove', self.draw, false);   
+			},
+			predraw : function(event) {
+
+				// console.log(event);
+				// console.log(event.touches);
+				var e = event.touches;
+				point.x = e.pageX;
+				point.y =e.pageY;
+
+				ctx.lineWidth = lineWidth;
+				ctx.strokeStyle = lineColor;
+				event.preventDefault();
+			},
+			draw:function(event) {
+
+				var e = event.touches[0];
+				
+				self.move(e.pageX,e.pageY);
+				event.preventDefault();
+			},
+			move:function(x,y) {
+				ctx.beginPath();
+				ctx.moveTo(point.x,point.y);
+				ctx.lineTo(x,y);
+				ctx.stroke();
+				ctx.closePath();
+				point={x:x,y:y};
+			},
+			clear:function() {
+					ctx.clearRect(0,0,canvas.width,canvas.height);
+			},
+			setlineWidth : function(size) {
+				lineWidth = size;
+			},
+			setlineColor : function(color) {
+				lineColor = color;
+			}
+		}
+		
+
+		return obj = {
+			init : self.init,
+			clearCanvas : self.clear,
+			setlineWidth : self.setlineWidth,
+			setlineColor : self.setlineColor
+		}
+	}
+
+
+
+	jQuery(function() {
+		
+		var value = window.screen.width - window.screen.height >= 0 ? window.screen.height :window.screen.width;
+
+		var a = new CanvansObj({id:"canvas1" ,width:value-2,height:value-2 });
+		a.init();
+		console.log(a);
+
+		jQuery("#btnClearConvas").click(function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+
+			a.clearCanvas();
+		});
+
+		jQuery("#ddllineWidth").change(function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+
+			a.setlineWidth(jQuery(this).val());
+		});
+
+
+		jQuery(".divcolor").click(function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+
+			var s = jQuery(this).css("backgroundColor");
+			a.setlineColor(s);
+		});
+	});
+
+
+
+</script>
+
+
+
+</body>
+</html>
