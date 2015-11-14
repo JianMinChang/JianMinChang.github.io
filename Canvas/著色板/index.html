@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zn-TW">
+<head>
+	<meta name="viewport" content="width=640, initial-scale=0.5, maximum-scale=1.0, minimum-scale=0.5, user-scalable=no">
+	<meta charset="UTF-8">
+	<title>Canvas</title>
+
+	<script src="http://m.vpon.com/ad_pro/js/jquery-latest.min.js"></script>
+
+	<style type="text/css">
+		.divcolor{
+			width:50px;
+			height: 50px;border: 1px solid #000;
+			float: left;margin-right: 1em;
+		}
+		#divColorArea{
+			width:640px;height:100px;
+		}
+		#divColorArea>.divColorTip{
+			width:640px;height:50px;
+		}
+		#divColorArea>.divlist{
+			width:640px;height:50px;float: left;margin-top: 1em;
+		}
+
+
+	</style>
+</head>
+<body>
+	<canvas id="canvas1" width="600" height="500" style="border: 1px solid #000;"></canvas>
+
+	<div id="divColorArea" >
+		<div class="divColorTip">
+			<div class="divcolor colortip" data-group="1" style="background-color:#FF0000;"></div>
+			<div class="divcolor colortip" data-group="2" style="background-color:#FF8200;"></div>
+			<div class="divcolor colortip" data-group="3" style="background-color:#FFDC3C;"></div>
+			<div class="divcolor colortip" data-group="4" style="background-color:#52E252;"></div>
+			<div class="divcolor colortip" data-group="5" style="background-color:#2828FF;"></div>
+			<div class="divcolor colortip" data-group="6" style="background-color:#7B68EE;"></div>
+			<div class="divcolor colortip" data-group="7" style="background-color:#800080;"></div>
+		</div>
+		<hr />
+		<div class="divlist">
+
+			<div class="divcolor colorlist" data-group="1" style="background-color:#FF0000;"></div>
+			<div class="divcolor colorlist" data-group="1" style="background-color:#DC143C;" ></div>
+			<div class="divcolor colorlist" data-group="1" style="background-color:#B22222;"></div>
+			<div class="divcolor colorlist" data-group="1" style="background-color:#A52A2A;"></div>
+			<div class="divcolor colorlist" data-group="1" style="background-color:#B91A4D;"></div>
+			<div class="divcolor colorlist" data-group="1" style="background-color:#B9062F;"></div>
+
+			<div class="divcolor colorlist" data-group="2" style="background-color:#FF8200;display: none;"></div>
+			<div class="divcolor colorlist" data-group="2" style="background-color:#FFBB8C;display: none;"></div>
+			<div class="divcolor colorlist" data-group="2" style="background-color:#FF9364;display: none;"></div>
+			<div class="divcolor colorlist" data-group="2" style="background-color:#E6A55A;display: none;"></div>
+			<div class="divcolor colorlist" data-group="2" style="background-color:#D27D32;display: none;"></div>	
+			<div class="divcolor colorlist" data-group="2" style="background-color:#D2691E;display: none;"></div>
+
+			<div class="divcolor colorlist" data-group="3" style="background-color:#FAEB78;display: none;"></div>
+			<div class="divcolor colorlist" data-group="3" style="background-color:#E1E100;display: none;"></div>
+			<div class="divcolor colorlist" data-group="3" style="background-color:#C4C400;display: none;"></div>
+			<div class="divcolor colorlist" data-group="3" style="background-color:#A6A600;display: none;"></div>
+			<div class="divcolor colorlist" data-group="3" style="background-color:#8C8C00;display: none;"></div>
+			<div class="divcolor colorlist" data-group="3" style="background-color:#737300;display: none;"></div>
+
+			<div class="divcolor colorlist" data-group="4" style="background-color:#52E252;display: none;"></div>
+			<div class="divcolor colorlist" data-group="4" style="background-color:#8EFB8E;display: none;"></div>
+			<div class="divcolor colorlist" data-group="4" style="background-color:#70F170;display: none;"></div>
+			<div class="divcolor colorlist" data-group="4" style="background-color:#63CC63;display: none;"></div>
+			<div class="divcolor colorlist" data-group="4" style="background-color:#4AB34A;display: none;"></div>	
+			<div class="divcolor colorlist" data-group="4" style="background-color:#228B22;display: none;"></div>
+
+
+			<div class="divcolor colorlist" data-group="5" style="background-color:#5ABEFF;display: none;"></div>
+			<div class="divcolor colorlist" data-group="5" style="background-color:#50C8FF;display: none;"></div>
+			<div class="divcolor colorlist" data-group="5" style="background-color:#3296D7;display: none;"></div>
+			<div class="divcolor colorlist" data-group="5" style="background-color:#50B4F5;display: none;"></div>
+			<div class="divcolor colorlist" data-group="5" style="background-color:#3232FF;display: none;"></div>	
+			<div class="divcolor colorlist" data-group="5" style="background-color:#2828CD;display: none;"></div>
+
+			<div class="divcolor colorlist" data-group="6" style="background-color:#7B68EE;display: none;"></div>
+			<div class="divcolor colorlist" data-group="6" style="background-color:#D5C2EE;display: none;"></div>
+			<div class="divcolor colorlist" data-group="6" style="background-color:#B4B4FF;display: none;"></div>
+			<div class="divcolor colorlist" data-group="6" style="background-color:#7878FF;display: none;"></div>
+			<div class="divcolor colorlist" data-group="6" style="background-color:#6464FF;display: none;"></div>	
+			<div class="divcolor colorlist" data-group="6" style="background-color:#52478B;display: none;"></div>
+
+			<div class="divcolor colorlist" data-group="7" style="background-color:#EE82EE;display: none;"></div>
+			<div class="divcolor colorlist" data-group="7" style="background-color:#C65AC6;display: none;"></div>
+			<div class="divcolor colorlist" data-group="7" style="background-color:#C65FF9;display: none;"></div>
+			<div class="divcolor colorlist" data-group="7" style="background-color:#AD19EC;display: none;"></div>
+			<div class="divcolor colorlist" data-group="7" style="background-color:#941494;display: none;"></div>	
+			<div class="divcolor colorlist" data-group="7" style="background-color:#800080;display: none;"></div>
+		</div>
+	</div>
+		
+	<script type="text/javascript">
+
+		picObjArray=[];
+
+		pointLeaveArray=[];
+
+		NextColor ="white";
+
+		var centerPoint = {x:300,y:200,r:100 };
+
+		function drawCircal (x,y,r) {
+			var x = x;
+			var y = y;
+			var r = r;
+			this.color ="white";
+
+			this.getCenter = function() {
+				return {x:x,y:y,r:r};
+			}
+			this.IsTouch =function(x,y) {
+				var o = this.getCenter();
+
+				return  Math.sqrt( Math.abs(x- o.x)* Math.abs(x- o.x) + Math.abs(y- o.y)*Math.abs(y- o.y))<r;
+			}
+
+
+			this.draw = function(ctx) {
+				var canvas = document.getElementById(ctx);
+			  if (canvas.getContext){
+			    var ctx = canvas.getContext('2d');
+
+			    var o = this.getCenter();
+
+			    // Filled triangle
+			    // 
+			    ctx.beginPath();
+    			ctx.arc(o.x,o.y,o.r,0,Math.PI*2,true);
+			    ctx.globalCompositeOperation ="source-over";
+			    
+			    ctx.strokeStyle = "black";
+			   	ctx.stroke();
+			   	ctx.fillStyle =this.color;
+				  ctx.fill();
+			    ctx.closePath();
+				}
+			}
+		}
+
+		function drawRect (x,y,w,h) {
+			var x = x;
+			var y = y;
+			var w =w;
+			var h =h;
+			
+			this.color = "white";
+
+			this.getObjPosition = function (){
+				return { x: x , y : y, w : w ,h : h };
+			}
+
+			this.IsTouch = function(x,y) {
+				var o = this.getObjPosition();
+				return ((x-o.x)>0 ) &&  ((x - (o.x+o.w))<0) && ((y-o.y)>0) && ((y-(o.y+h))<0);
+			}
+
+			this.draw = function(ctx) {
+				var canvas = document.getElementById(ctx);
+			  if (canvas.getContext){
+			    var ctx = canvas.getContext('2d');
+			    var o = this.getObjPosition();
+			    ctx.beginPath();
+			    ctx.strokeStyle = "black";
+			    ctx.globalCompositeOperation ="destination-over";
+
+			    ctx.strokeRect(o.x,o.y,o.w,o.h);
+			    ctx.fillStyle =this.color;
+				  ctx.fillRect(o.x,o.y,o.w,o.h);
+			    ctx.closePath();
+				}
+			}
+		}
+
+		function PicInit () {
+
+			var o1 = new drawCircal(centerPoint.x,centerPoint.y,centerPoint.r);
+			picObjArray.push(o1);
+
+			for(arr in picObjArray){
+				picObjArray[arr].draw("canvas1");
+			}
+		}
+
+	// canvas 滑鼠偵測位置事件 Touch偵測位置事件
+		function canvasTouchinit() {
+		  var touchzone = document.getElementById("canvas1");
+		  touchzone.addEventListener("touchstart", touchHandler, false);
+		  touchzone.addEventListener("mousedown", getPosition, false);
+		  PicInit();
+		}
+
+		function getPosition(event){
+		  var x = event.x;
+		  var y = event.y;
+		  var canvas = document.getElementById("canvas1");
+
+		  x -= canvas.offsetLeft;
+		  y -= canvas.offsetTop;
+		  canvasChange(x,y);
+		}
+
+		function touchHandler(event) {
+		  canvasChange(event.touches[0].pageX,event.touches[0].pageY);
+		}
+
+		function canvasChange(x,y) {
+
+			var a = document.getElementById("canvas1");
+			var ctx = a.getContext("2d");
+			ctx.clearRect(0,0,600,600);
+
+			for(arr in picObjArray){
+
+				if (picObjArray[arr].IsTouch(x,y)) {
+					picObjArray[arr].color = NextColor;
+					
+				};
+				picObjArray[arr].draw("canvas1");
+			}
+		}
+
+
+	  var  circulPost =function  (centerX,centerY,r,route) {
+				var x=y=0;
+				var rad = Math.PI/180*route;
+
+				x = centerX+r*Math.cos(rad);
+				y = centerY+r*Math.sin(rad);
+
+				return {x:x , y:y};
+		};
+
+
+		(function  () {
+			
+			function drawObjCirculHalf (x,y,r,s,e,c) {
+				
+				var x= x;
+				var y=y;
+				var r=r;
+				var start=s;
+				var end=e;
+				var c = c;
+
+				this.color="white";
+
+				this.getCenter =function() {
+					return {x:x,y:y,r:r};
+				}
+
+				this.IsTouch =function(x,y) {
+					var o = this.getCenter();
+					var  bool = Math.sqrt( Math.abs(x- o.x)* Math.abs(x- o.x) + Math.abs(y- o.y) *Math.abs(y- o.y))<r;
+					
+					var boo2 = Math.sqrt( Math.abs(x- centerPoint.x)* Math.abs(x- centerPoint.x) + Math.abs(y- centerPoint.y) *Math.abs(y- centerPoint.y))< (centerPoint.r);
+					
+					
+					return  bool==true && boo2==false;
+				}
+
+				this.draw= function(ctx,start,end) {
+
+					var canvas = document.getElementById(ctx);
+			
+				  if (canvas.getContext){
+				    var ctx = canvas.getContext('2d');
+			 			ctx.beginPath();
+	    			ctx.strokeStyle = "black";
+	    			ctx.arc(x,y,r,s,e,true);
+						ctx.stroke();
+						ctx.fillStyle =this.color;
+						ctx.globalCompositeOperation ="destination-over";
+					  ctx.fill();
+				  }
+				}
+
+			}
+
+
+				function drawObjleaves (x,y,r,s,e,i,g) {
+				
+						var x= x;
+						var y=y;
+						var r=r;
+						var start=s;
+						var end=e;
+						var g =g;
+						var index=i;
+
+						this.color="white";
+
+						this.getCenter =function() {
+							return {x:x,y:y,r:r,g:g , index:index};
+						}
+
+						this.IsTouch =function(x,y) {
+							var isMatch = false;
+
+							var tmpthis = this.getCenter();
+							var  bool = Math.sqrt( Math.abs(x- tmpthis.x)* Math.abs(x- tmpthis.x) + Math.abs(y- tmpthis.y) *Math.abs(y- tmpthis.y))<r;
+							
+							
+							for (var i = 0,max=pointLeaveArray.length; i <max ; i++) {
+								if (pointLeaveArray[i].getCenter().index != tmpthis.index  && parseInt(pointLeaveArray[i].getCenter().g) == parseInt(this.getCenter().g) ) {
+
+									var o =pointLeaveArray[i].getCenter();
+									isMatch =Math.sqrt( Math.abs(x- o.x)* Math.abs(x- o.x) + Math.abs(y- o.y) *Math.abs(y- o.y))<r;
+								}
+							}
+							
+							return bool && isMatch;
+						}
+
+						this.draw= function(ctx) {
+
+							var canvas = document.getElementById(ctx);
+					
+						  if (canvas.getContext){
+						    var ctx = canvas.getContext('2d');
+					 			ctx.beginPath();
+					 			
+			    			ctx.strokeStyle = "black";
+			    			ctx.arc(x,y,r,s,e,true);
+								ctx.stroke();
+
+								var changeDeg =function(value) {
+									value = (180/Math.PI)*value;
+
+									return value;
+								}
+
+								var izx = changeDeg(s);
+								var izy = changeDeg(e);
+
+								var deg = Math.abs(Math.abs(izx) -Math.abs(izy));
+
+								function getNewPoint(x,y,r,deg) {
+									var  starX  = x+r*Math.cos((Math.PI/180)*deg);
+									var  starY  = y+r*Math.sin((Math.PI/180)*deg);
+									return { x:starX ,y:starY };
+								}
+								var a10x = new getNewPoint(x,y,r,izx);
+								var a10y = new getNewPoint(x,y,r,izy);
+
+								ctx.moveTo(a10x.x,a10x.y);
+								ctx.lineTo(a10y.x,a10y.y);
+
+								ctx.stroke();
+							
+								ctx.fillStyle =this.color;
+								ctx.globalCompositeOperation ="destination-over";
+						    ctx.fill();
+						  }
+						}
+				}
+
+
+			var max = 6;
+			
+			var deg = 360/max;
+
+			var trad = function  (deg) {
+				return Math.PI/180*deg;
+			};
+
+			
+			var o1 = circulPost(centerPoint.x,centerPoint.y,centerPoint.r,0*360/max); 
+			var h1 = new drawObjCirculHalf(o1.x,o1.y,50, trad(105) , trad(255));
+
+
+			var o2 = circulPost(centerPoint.x,centerPoint.y,centerPoint.r,1*360/max); 
+			var h2 = new drawObjCirculHalf(o2.x,o2.y,50, trad(170) , trad(310));
+
+
+			var o3 = circulPost(centerPoint.x,centerPoint.y,centerPoint.r,2*360/max); 
+			var h3 = new drawObjCirculHalf(o3.x,o3.y,50, trad(230) , trad(370));
+
+			var o4 = circulPost(centerPoint.x,centerPoint.y,centerPoint.r,3*360/max); 
+			var h4 = new drawObjCirculHalf(o4.x,o4.y,50, trad(290) , trad(430));
+
+			var o5 = circulPost(centerPoint.x,centerPoint.y,centerPoint.r,4*360/max); 
+			var h5 = new drawObjCirculHalf(o5.x,o5.y,50, trad(350) , trad(490));
+
+
+			var o6 = circulPost(centerPoint.x,centerPoint.y,centerPoint.r,5*360/max); 
+			var h6 = new drawObjCirculHalf(o6.x,o6.y,50, trad(410) , trad(540));
+
+			var a1 = new drawRect(285,302,30,298);
+
+			var pa1 = new drawObjleaves(468,460,150,trad(-80),trad(180),0,0);
+			var pa2 = new drawObjleaves(344,314,150,trad(100),trad(0),1,0);
+			var pa3 = new drawObjleaves(130,498,150,trad(0),trad(270),2,1);
+			var pa4 = new drawObjleaves(280,350,150,trad(180),trad(90),3,1);
+
+			//葉子的陣列
+			pointLeaveArray.push(pa1);
+			pointLeaveArray.push(pa2);
+			pointLeaveArray.push(pa3);
+			pointLeaveArray.push(pa4);
+
+			//所有物件的陣列
+			picObjArray.push(h1);
+			picObjArray.push(h2);
+			picObjArray.push(h3);
+			picObjArray.push(h4);
+			picObjArray.push(h5);
+			picObjArray.push(h6);
+
+			picObjArray.push(a1);
+
+			picObjArray.push(pa1);
+			picObjArray.push(pa2);
+			picObjArray.push(pa3);
+			picObjArray.push(pa4);
+
+		})();
+
+		jQuery(function() {
+			canvasTouchinit();
+
+			jQuery(".colorlist").click(function(e) {
+				e.preventDefault();
+				e.stopPropagation();
+				
+				NextColor = jQuery(this).css("backgroundColor");
+			});
+
+
+			jQuery(".colortip").click(function(e) {
+				e.preventDefault();
+				e.stopPropagation();
+
+				var t = jQuery(this).attr("data-group");
+
+				jQuery(".colorlist").each(function() {
+					if (t != jQuery(this).attr("data-group")) {
+						jQuery(this).hide();
+					}
+					else{
+						jQuery(this).show();
+					}
+				});
+
+			});
+		});
+		
+
+	</script>
+</body>
+</html>
