@@ -1,0 +1,224 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, maximum-scale=1, user-scalable=no" /> 
+<!--以上勿動 -->
+<title>Test</title>
+<style type="text/css">
+body { margin:0 ; padding:0; background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACVJREFUeNpitLS0lJWVffz4MZBkDAsLY4ABJqAYkIKQKDIAAQYAVVMLXmMqHtMAAAAASUVORK5CYII=") ; background-size:4px 4px}
+img { border:none; vertical-align:top}
+#container {
+	width:320px;
+	height:50px;
+	position:absolute;
+	left:50%;top:50%;
+	margin:-25px auto auto -160px;
+	overflow:hidden;
+	background-color:#C4E1E1;
+	background-size:320px 50px;
+}
+
+#container div{
+	width: 100%;
+	height: 100%;
+
+
+	-webkit-animation-iteration-count: infinite;
+	-o-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+
+	-webkit-animation-timing-function: linear;
+	-o-animation-timing-function: linear;
+	animation-timing-function: linear;
+
+	-webkit-animation-duration: 6s;
+	-o-animation-duration: 6s;
+	animation-duration: 6s;
+}
+
+
+#cu1 {
+  -webkit-animation: cu1;
+  animation:  cu1;
+}
+
+
+#cu2 {
+  -webkit-animation:  cu2;
+  animation: cu2;
+}
+
+#cu2>div{
+	width: 100%;
+	height:100%;
+	margin-top:10px;
+	margin-left: 20px;
+}
+
+#cu3{
+	 -webkit-animation:  cu3;
+  animation: cu3;
+
+}
+
+#nolbs{
+	width: 100%;height: 100%;display: block;
+	padding-top: 5px;
+}
+#lbs{
+	width: 100%;height: 100%;display: none;
+}
+
+@-webkit-keyframes cu1 {
+  0% { -webkit-transform: translateY(0px);opacity: 0}
+  5% { -webkit-transform: translateY(0px);opacity: 1}
+  50% { -webkit-transform: translateY(-50px);opacity: 1}
+  100% { -webkit-transform: translateY(-50px);opacity: 0 }
+}
+
+@keyframes cu1 {
+  0% { -webkit-transform: translateY(0px);opacity: 1}
+  5% { -webkit-transform: translateY(0px);opacity: 1}
+  50% { -webkit-transform: translateY(-50px);opacity: 1}
+  100% { -webkit-transform: translateY(-50px);opacity: 0 }
+}
+
+
+@-webkit-keyframes cu2 {
+  0% { -webkit-transform: translateY(-50px);opacity: 0}
+  50% { -webkit-transform: translateY(-50px);opacity: 0}
+  55% { -webkit-transform: translateY(-50px);opacity: 1}
+  100% { -webkit-transform: translateY(-100px;);opacity: 1 }
+}
+
+@keyframes cu2 {
+  0% { transform: translateY(-50px);opacity: 0}
+  50% { transform: translateY(-50px);opacity: 1}
+  55% { transform: translateY(-50px);opacity: 1}
+  100% { transform: translateY(-100px);opacity: 1 }
+}
+
+
+@-webkit-keyframes cu3 {
+  0% { -webkit-transform: translateY(-100px);opacity: 0}
+  50% { -webkit-transform: translateY(-100px);opacity: 0}
+  80% { -webkit-transform: translateY(-100px);opacity: 1}
+  100% { -webkit-transform: translateY(-100px;);opacity: 1 }
+}
+
+@keyframes cu3 {
+  0% { transform: translateY(-100px);opacity: 0}
+  50% { transform: translateY(-100px);opacity: 0}
+  80% { transform: translateY(-100px);opacity: 1}
+  100% { transform: translateY(-100px);opacity: 1 }
+}
+</style>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+</head>
+
+<body>
+
+	<div id="container">
+	  
+	  <div id="cu1">
+	  	<div style="margin-left: 80px;">台北101 - 跨年煙火秀</div>
+	  </div>
+	  <div id="cu2">
+
+	  	<div id="nolbs">
+	  		<span>璀璨煙火共度跨年夜</span>
+	  	</div>
+	  	<div id="lbs" >
+	  		<span>你和台北101的距離為:</span><span id="distance" style="color:red;"></span><span id="t" style="color:red;">m</span>
+	  	</div>
+	  	
+	  </div>
+		
+		<div id="cu3">
+			
+				<div style="margin-left:50px;color:red;"> Happy New Year!!!</div>
+			
+		</div>
+	  
+	</div>
+
+<script type="text/javascript">
+
+
+	window.onload =function() {
+
+
+		var ulat =getQueryString("u_lat");
+		var ulon =getQueryString("u_lon");
+		var plat =25.033493;
+		var plon =121.564101;
+
+			nearest = 1000;
+
+		//拆解URL
+		function getQueryString (paramName) {
+		paramName = paramName .replace(/[[]/,"\[").replace(/[]]/,"\]");
+		var reg = "[\?&]"+paramName +"=([^&#]*)";
+		var regex = new RegExp( reg );
+		var regResults = regex.exec(window.location.href);
+		if( regResults == null ) {
+		return "";
+		} else {
+		return regResults[1];
+		}
+		}
+
+
+
+
+		function Rad(d){
+		return d*Math.PI / 180.0;
+		};
+
+		function GetDistance(lat1,lng1,lat2,lng2){
+
+		var radLat1 = Rad(lat1);
+		var radLat2 = Rad(lat2);
+		var a = radLat1 - radLat2;
+		var b = Rad(lng1) - Rad(lng2);
+		var s = 2*Math.asin(Math.sqrt(Math.pow(Math.sin(a/2),2) + Math.cos(radLat1)*Math.cos(radLat2)*Math.pow(Math.sin(b/2),2)));
+		s = s*6378.137 ;
+		s = Math.round(s*10000) / 10000; //输出为公里
+		return s;
+
+		};
+
+		var num =0;
+
+
+		if (ulat!="" && ulon!="" && plon!="" && plat!="") {
+			num = GetDistance(ulat,ulon,plat,plon);
+			num=Math.round(num*1000);
+
+			if (num>1000 ||num < 0) {
+				jQuery("#lbs").hide();
+				jQuery("#nolbs").show();
+			}
+			else{
+				jQuery("#distance").html(num);
+				jQuery("#lbs").show();
+				jQuery("#nolbs").hide();
+				
+			}
+
+			console.log(num);
+
+		}
+		else{
+			jQuery("#lbs").hide();
+			jQuery("#nolbs").show();
+		}
+
+	}
+
+
+</script>
+</body>
+</html>
