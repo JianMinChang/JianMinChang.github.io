@@ -216,6 +216,15 @@ img { border:none; vertical-align:top}
 			jQuery("#nolbs").show();
 		}
 
+
+
+		jQuery("#container").click(function(e) {
+			e.stopPropagation();
+			e.preventDefault();
+
+
+			JCSdk.openbrowser("http://www.taipei-101.com.tw/");
+		});
 	}
 
 
