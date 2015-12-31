@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, maximum-scale=1, user-scalable=no" /> 
+<!--以上勿動 -->
+<title>Test</title>
+<style type="text/css">
+body { margin:0 ; padding:0; background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACVJREFUeNpitLS0lJWVffz4MZBkDAsLY4ABJqAYkIKQKDIAAQYAVVMLXmMqHtMAAAAASUVORK5CYII=") ; background-size:4px 4px}
+img { border:none; vertical-align:top}
+#container {
+	width:320px;
+	height:50px;
+	position:absolute;
+	left:50%;top:50%;
+	margin:-25px auto auto -160px;
+	overflow:hidden;
+	background-color:#C4E1E1;
+	background-size:320px 50px;
+}
+
+#container div{
+	
+}
+
+</style>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+
+<body>
+
+	<div id="container">
+	  
+		<div>
+				<label> 現在地點 :</label><span id="span_location"></span>
+				<br />
+				<label> 溫度 :</label><span id="span_nowtemp"></span><label> 度;</label>
+				<label> 預報高溫 :</label> <span id="span_hightemp"></span><label>度;</label>	
+				<label> 預報低溫 :</label> <span id="span_lowtemp"></span><label>度</label>	
+		</div>
+
+	</div>
+
+	<script type="text/javascript">
+		//拆解URL
+		function getQueryString (paramName) {
+		paramName = paramName .replace(/[[]/,"\[").replace(/[]]/,"\]");
+		var reg = "[\?&]"+paramName +"=([^&#]*)";
+		var regex = new RegExp( reg );
+		var regResults = regex.exec(window.location.href);
+		if( regResults == null ) {
+		return "";
+		} else {
+		return regResults[1];
+		}
+		}
+
+
+
+		function getuserLocation(lat,lon,callbackfunction) {
+			 		
+
+			 		if (lat=="" || lon =="" ) {
+			 			callbackfunction("2306179");
+			 		}
+			 		else{
+			   		var woeid="";
+			   
+				    var userlocation=lat+","+lon;
+				    var getwoeidurl="http://query.yahooapis.com/v1/public/yql?q=select%20woeid%20from%20geo.placefinder%20where%20text=%22"+userlocation+"%22%20and%20gflags=%22R%22&format=json";
+
+				    jQuery.getJSON(getwoeidurl,function(data){
+				    	
+				    	if(data.query.count=1){
+				      	woeid=data.query.results.Result.woeid;
+				    	}
+				    	else{
+					      woeid="2306179";
+				     	}
+				     	callbackfunction(woeid);
+				    });
+			  	}
+			}
+			  
+			
+
+
+			function ShowWeather(w){
+    		jQuery.getJSON("http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid="+w+"&format=json",function(data){  
+    			console.log(data);
+
+    			var post =data.query.results.channel.location;
+    			console.log(post);
+
+    			var condition = data.query.results.channel.item.condition;
+    			console.log(condition);
+
+    			var tomorrow = data.query.results.channel.item.forecast;
+    			console.log(tomorrow);
+
+
+    			var x = data.query.results.channel.item.forecast[0];
+    			console.log("high=" + change1(x.high), "low="+change1(x.low));
+    			
+    			jQuery("#span_location").html(post.country+" " + post.city);
+    			jQuery("#span_nowtemp").html(change1(condition.temp));
+    			jQuery("#span_hightemp").html(change1(tomorrow[0].high));
+    			jQuery("#span_lowtemp").html(change1(tomorrow[0].low));
+    			
+    		});
+    	}
+
+    	function change1 (x) {
+    		return Math.round((x-32)*5/9);
+    	}
+
+  	jQuery(function() {
+
+
+  			var ulat =getQueryString("u_lat");
+				var ulon =getQueryString("u_lon");
+
+				ulat = ulat==0.0 || ulat=="" ? 25.033408: ulat;
+				ulon = ulon==0.0 || ulon=="" ?  121.564099: ulon;
+
+
+    		getuserLocation(ulat,ulon,function(w){
+    			ShowWeather(w);
+    		});
+
+
+    		jQuery("#container").click(function(e) {
+					e.stopPropagation();
+					e.preventDefault();
+
+					
+					JCSdk.openbrowser("http://www.cwb.gov.tw/");
+				});
+  	});
+
+
+
+
+	</script>
+</body>
+</html>
