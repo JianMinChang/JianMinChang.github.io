@@ -1,0 +1,6 @@
+.modal-body .row{
+    border-bottom: #e9ecef solid 1px;
+}
+.modal-body .row:last-child{
+    border-bottom: none;
+}

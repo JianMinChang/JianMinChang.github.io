@@ -68,7 +68,15 @@
 					
                      if(self.info.data[id].status=="on_sale"){
                         alertComponment.alertobj.show=true;
-                        alertComponment.alertobj.data=self.info.data[id];
+                        // self.info.data[id];
+                        alertComponment.alertobj.data={
+                        	serial:self.info.data[id]["serial"],
+                        	tpurpose:self.info.data[id]["loan_detail"]["purpose"],
+                        	amount:self.info.data[id]["amount"],
+                        	status_label:self.info.data[id]["status_label"],
+                        	expire_at:self.info.data[id]["expire_at"],
+                        	description:self.info.data[id]["loan_detail"]["description"]
+                        }
                     }
 				},
 				pageclick:function(pageindex){
