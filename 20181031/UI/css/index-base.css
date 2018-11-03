@@ -1,0 +1,29 @@
+.content{
+    background-color: white;
+}
+body{
+    margin: 10px;
+}
+.font-color{
+    color : #00477D	;
+}
+.form-content{
+    width: 100%;
+    background-color: #ddd;
+}
+.box-sizing{
+    box-sizing: border-box;
+}
+.btn{
+    background-color: red;
+    color: white;
+}
+.form-content{
+    padding: 10px;
+}
+
+a.hint::after{
+    content: "↗";
+    position: relative;
+    top: -5px;
+}

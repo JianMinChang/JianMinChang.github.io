@@ -1,0 +1,92 @@
+
+@media screen and (min-width:721px) and  (max-width:1920px){
+    body{
+        background-image: url("../images/background.jpg");
+        background-size:  100%;
+        background-repeat: no-repeat;
+    }
+    .title{
+        margin-bottom: 10px;
+        font-size: 36px;
+        padding: 20px;
+    }
+    .form-content{
+        height:65%;
+        padding-top: 20px;
+    
+    }
+    .item{
+        width: 100%;
+        padding: 20px;
+    }
+    .item>li{
+        width:33%;
+        display: inline-block;
+        text-align: center;
+    }
+    a.link{
+        color:red;
+        text-decoration: none;
+    }
+    .item>li:nth-child(1){
+        text-align: left;
+    }
+    .item>li:nth-child(3){
+        text-align: right;
+    }
+    a.linkactive{
+        color:#87CEFA;
+    }
+    .content{
+        width: 70%;
+        margin: 0 auto;
+        margin-top: 18%;
+        height: 380px;
+    };
+    
+    .btn{
+        width: 150px;
+    }
+    .div-row{
+        display: inline-block;
+        width: 39%;
+    }
+    .div-row:nth-child(1){
+        width: 100%;
+    }
+    .div-row:nth-child(4){
+        width: 20%
+    }
+    
+    .input-wMax{
+        line-height: 3;
+        font-size:18;
+        width: 95%;
+        padding: 5px;
+    }
+    
+    #icon-privacy{
+        font-size: 18px;
+        line-height: 3;
+    }
+    #icon-privacy>img{
+        width: 18%;
+        float:right;
+    }
+    #icon-mail{ 
+        width: 250px;
+        display: table;
+        margin: 0 auto;
+        margin-top:30px;
+        font-size: 24px;
+        
+    }
+    #icon-mail>img{
+        width: 10%;
+        float: left;
+        padding-right: 5px;
+    }
+    a.link-blue{
+        color:#3a6c88;
+    }
+}
