@@ -18,10 +18,11 @@
     .item{
         width: 100%;
         padding: 20px;
+        display: table;
     }
     .item>li{
         width:33%;
-        display: inline-block;
+        display: table-cell;
         text-align: center;
     }
     a.link{
