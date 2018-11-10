@@ -25,7 +25,7 @@
     }
     .form-content{
         position: relative;
-        top:-10vh;
+        top:-80px;
     }
     .item {
         background-color: #ddd;
@@ -60,7 +60,7 @@
     }
     .item.box-sizing{
         position: relative;
-        top: 35vh;
+        top: 300px;
         z-index: 20;
     }
     .item>li:nth-child(1){
