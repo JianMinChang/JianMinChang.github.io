@@ -10,6 +10,7 @@ body{
 .form-content{
     width: 100%;
     background-color: #ddd;
+    padding: 10px;
 }
 .box-sizing{
     box-sizing: border-box;
@@ -17,9 +18,6 @@ body{
 .btn{
     background-color: red;
     color: white;
-}
-.form-content{
-    padding: 10px;
 }
 
 a.hint::after{

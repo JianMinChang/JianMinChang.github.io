@@ -26,13 +26,16 @@
     .form-content{
         position: relative;
         top:-80px;
+        border: #ddd solid 10px;
+        padding: 0;
     }
     .item {
         background-color: #ddd;
         text-align: center;
     }
     .item >li {
-        line-height: 3;    
+        line-height: 3;  
+        border-top: #ddd solid 10px;  
     }
     
     .item >li:last-child{
@@ -60,7 +63,7 @@
     }
     .item.box-sizing{
         position: relative;
-        top: 300px;
+        top: 330px;
         z-index: 20;
     }
     .item>li:nth-child(1){
